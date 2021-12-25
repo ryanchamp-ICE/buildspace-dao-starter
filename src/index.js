@@ -20,7 +20,7 @@ ReactDOM.render(
       connectors={connectors}
       supportedChainIds={supportedChainIds}
     >
-      <div class="landing">
+      <div className="landing">
         <App />
       </div>
     </ThirdwebWeb3Provider>
