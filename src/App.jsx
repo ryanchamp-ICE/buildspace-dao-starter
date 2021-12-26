@@ -141,6 +141,18 @@ const App = () => {
       });
   }, [address]);
 
+  if (error && error.name === "UnsupportedChainIdError") {
+    return (
+      <div className="unsupported-network">
+        <h2>Please connect to Rinkeby</h2>
+        <p>
+          This dapp only works on the Rinkeby network, please switch networks
+          in your connected wallet.
+        </p>
+      </div>
+    );
+  }
+
   const mintNft = () => {
     setIsClaiming(true);
 
@@ -163,7 +175,7 @@ const App = () => {
   if (!address) {
     return (
       <div className="landing">
-        <h1>Welcome to SweetCityDAO</h1>
+        <h1>Welcome to 🕹️SweetCityDAO🎮</h1>
         <button onClick={() => connectWallet("injected")} className="btn-hero">
           Connect your wallet
         </button>
@@ -174,7 +186,7 @@ const App = () => {
   if (hasClaimedNFT) {
     return (
       <div className="member-page">
-        <h1>SweetCityDAO Member Page</h1>
+        <h1>🕹️SweetCityDAO🎮 Member Page</h1>
         <p>Congratulations on being a member</p>
         <div>
           <div>
@@ -329,7 +341,7 @@ const App = () => {
 
   return (
     <div className="mint-nft">
-      <h1>Mint your free SweetCityDAO Membership NFT</h1>
+      <h1>Mint your free 🕹️SweetCityDAO🎮 Membership NFT</h1>
       <button disabled={isClaiming} onClick={() => mintNft()}>
         { isClaiming ? "Minting..." : "Mint your NFT (FREE)" }
       </button>
